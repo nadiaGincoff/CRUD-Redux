@@ -24,6 +24,51 @@
       "name": "Strawberry juice",
       "price": "200",
       "id": 5
+    },
+    {
+      "name": "Yerba mate",
+      "price": 230,
+      "id": 6
+    },
+    {
+      "name": "Limonada",
+      "price": 30,
+      "id": 7
+    },
+    {
+      "name": "Agua mineral ",
+      "price": 50,
+      "id": 8
+    },
+    {
+      "name": "Limon ",
+      "price": 2222,
+      "id": 9
+    },
+    {
+      "name": "Papa",
+      "price": 300,
+      "id": 10
+    },
+    {
+      "name": "Papas",
+      "price": 23,
+      "id": 11
+    },
+    {
+      "name": "Pineapple juice",
+      "price": 230,
+      "id": 12
+    },
+    {
+      "name": "Pinia ",
+      "price": 23,
+      "id": 13
+    },
+    {
+      "name": "Tomato juice",
+      "price": 250,
+      "id": 14
     }
   ]
 }

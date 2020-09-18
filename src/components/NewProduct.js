@@ -4,13 +4,17 @@ import { useDispatch, useSelector } from 'react-redux'
 // Redux actions
 import { createNewProductAction } from '../actions/productActions';
 
-const NewProduct= () => {
+const NewProduct= ({history}) => {
     // component state
     const [name, saveName] = useState('');
     const [price, savePrice] = useState(0);
 
     // use useDispatch and create a function
     const dispatch = useDispatch();
+
+    // access the store status
+    const loading = useSelector( state => state.products.loading );
+    const error = useSelector(state => state.products.error);
 
     const addProduct = (product) => dispatch( createNewProductAction(product) )
 
@@ -23,12 +27,13 @@ const NewProduct= () => {
         }
         // if there are no errors
         
-        
         // create the new product
         addProduct({
             name, 
             price
         })
+        
+        history.push('/')
     }
 
     return ( 
@@ -66,6 +71,8 @@ const NewProduct= () => {
                             >Add
                             </button>
                         </form>
+                        { loading ? <p>Loading...</p> : null }
+                        { error ? <p className='alert alert-danger p2 mt-4 text-center'>There was a mistake</p> : null } 
                     </div>
                 </div>
             </div>
