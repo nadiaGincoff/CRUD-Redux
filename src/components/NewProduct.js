@@ -23,7 +23,6 @@ const NewProduct= () => {
         }
         // if there are no errors
         
-        
         // create the new product
         addProduct({
             name, 
