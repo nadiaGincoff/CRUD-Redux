@@ -1,8 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Redux
+import { useDispatch } from 'react-redux';
+import { deleteProductAction } from '../actions/productActions';
+
 const Product = ({product}) => {
-    const { name, price, id } = product
+    const { name, price, id } = product;
+    
+    const dispatch = useDispatch();
+
+    // Confirm if you want to delete it
+    const confirmProductDelete = id => {
+
+        dispatch( deleteProductAction(id) )
+        console.log(id)
+    }
+
     return ( 
         <tr>
             <td>{name}</td>
@@ -14,6 +28,7 @@ const Product = ({product}) => {
                 <button 
                     type='button'
                     className='btn btn-danger'
+                    onClick={ () => confirmProductDelete(id) }
                 >
                     Delete
                 </button>
