@@ -9,6 +9,7 @@ import {
 
 import axiosClient from '../config/axios'
 import Swal from 'sweetalert2'
+
 // Create new products
 export function createNewProductAction(product) {
     return async (dispatch) => {
@@ -55,7 +56,6 @@ const addProductError = state => ({
 })
 
 // function that downloads the products from the database
-
 export function getProductsAction() {
     return async (dispatch) => {
         dispatch( downloadProducts() )
