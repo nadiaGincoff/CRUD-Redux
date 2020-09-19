@@ -69,6 +69,26 @@
       "name": "Tomato juice",
       "price": 250,
       "id": 14
+    },
+    {
+      "name": "Lechuga",
+      "price": 2333,
+      "id": 15
+    },
+    {
+      "name": "Bananas 3kg",
+      "price": 340,
+      "id": 16
+    },
+    {
+      "name": "Milanesas 34kg",
+      "price": 6554,
+      "id": 17
+    },
+    {
+      "name": "Agua 250ml",
+      "price": 23,
+      "id": 18
     }
   ]
 }
