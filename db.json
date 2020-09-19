@@ -1,69 +1,9 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Carrot juice",
-      "price": "31111"
-    },
-    {
-      "id": 2,
-      "name": "Orange juice",
-      "price": "1"
-    },
-    {
-      "name": "Orange juice",
-      "price": "300",
-      "id": 3
-    },
-    {
-      "name": "Rib Eye 800g",
-      "price": "200",
-      "id": 4
-    },
-    {
-      "name": "Strawberry juice",
-      "price": "200",
-      "id": 5
-    },
-    {
-      "name": "Yerba mate",
-      "price": 230,
-      "id": 6
-    },
-    {
-      "name": "Limonada",
-      "price": 30,
-      "id": 7
-    },
-    {
-      "name": "Agua mineral ",
-      "price": 50,
-      "id": 8
-    },
-    {
-      "name": "Limon ",
-      "price": 2222,
-      "id": 9
-    },
-    {
-      "name": "Papa",
-      "price": 300,
-      "id": 10
-    },
-    {
-      "name": "Papas",
-      "price": 23,
-      "id": 11
-    },
-    {
       "name": "Pineapple juice",
       "price": 230,
       "id": 12
-    },
-    {
-      "name": "Pinia ",
-      "price": 23,
-      "id": 13
     },
     {
       "name": "Tomato juice",
@@ -71,29 +11,14 @@
       "id": 14
     },
     {
-      "name": "Lechuga",
-      "price": 2333,
+      "name": "Orange juice ",
+      "price": 400,
       "id": 15
     },
     {
-      "name": "Bananas 3kg",
-      "price": 340,
+      "name": "Carrot juice ",
+      "price": 2304,
       "id": 16
-    },
-    {
-      "name": "Milanesas 34kg",
-      "price": 6554,
-      "id": 17
-    },
-    {
-      "name": "Agua 250ml",
-      "price": 23,
-      "id": 18
-    },
-    {
-      "name": "Water",
-      "price": 240,
-      "id": 19
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2'
 // Redux
 import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../actions/productActions';
@@ -9,12 +9,31 @@ const Product = ({product}) => {
     const { name, price, id } = product;
     
     const dispatch = useDispatch();
+    
+    // function
+    const history = useHistory(); // enable history for edition
 
     // Confirm if you want to delete it
     const confirmProductDelete = id => {
+        // ask the user 
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#5EB69D',
+            cancelButtonColor: '#FF5A2B',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch( deleteProductAction(id) )
+            }
+          })
+    }
 
-        dispatch( deleteProductAction(id) )
-        console.log(id)
+    // function that redirects on a scheduled basis (redirige de forma programada)
+    const redirectEdit = product => {
+        history.push(`/products/edit/${product.id}`)
     }
 
     return ( 
@@ -22,9 +41,13 @@ const Product = ({product}) => {
             <td>{name}</td>
             <td><span className='font-weight-bold'>${price}</span></td>
             <td className='actions'>
-                <Link to={`/products/edit/${id}`} className='btn btn-primary mr-2' >
+                <button 
+                    type='button'
+                    className='btn btn-primary mr-2'
+                    onClick={ () => redirectEdit(product)}
+                >
                     Edit
-                </Link>
+                </button>
                 <button 
                     type='button'
                     className='btn btn-danger'

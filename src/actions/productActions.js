@@ -27,6 +27,7 @@ export function createNewProductAction(product) {
                 'Correct',
                 'The product has been added successfully',
                 'success'
+                
             )
         } catch (error) {
             console.log(error)
@@ -90,10 +91,30 @@ const downloadProductsError = () => ({
 export function deleteProductAction(id) {
     return async (dispatch) => {
         dispatch( getProductDelete(id) )
+        try {
+            const result = await axiosClient.delete(`/products/${id}`);
+            dispatch( deleteProductSuccess(result) )
+            Swal.fire(
+                'Deleted!',
+                'Your product has been deleted.',
+                'success'
+            )
+        } catch (error) {
+            dispatch( deleteProductError() )
+        }
     }
 }
 
 const getProductDelete = id => ({
     type: GET_DELETE_PRODUCT,
     payload: id
+})
+
+const deleteProductSuccess = () => ({
+    type: DELETE_PRODUCT_SUCCESS,
+})
+
+const deleteProductError = () => ({
+    type: DELETE_PRODUCT_ERROR,
+    payload: true
 })
