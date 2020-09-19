@@ -4,7 +4,13 @@ import {
     ADD_PRODUCT_ERROR,
     START_DOWNLOAD_PRODUCTS,
     DOWNLOAD_PRODUCTS_SUCCESS,
-    DOWNLOAD_PRODUCTS_ERROR
+    DOWNLOAD_PRODUCTS_ERROR,
+    GET_DELETE_PRODUCT,
+    DELETE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT_ERROR,
+    GET_EDIT_PRODUCT,
+    EDIT_PRODUCT_SUCCESS,
+    EDIT_PRODUCT_ERROR,
 } from '../types'
 
 // each reducer has its own state
@@ -12,7 +18,9 @@ import {
 const initialState = {
     products: [],
     error: null, 
-    loading: false
+    loading: false,
+    productdelete: null,
+    editproduct: null
 }
 
 export default function(state = initialState, action) {
@@ -27,8 +35,10 @@ export default function(state = initialState, action) {
             return {
                 ...state, 
                 loading: false,
-                products: [...state.products, action.payload ]
+                products: [ ...state.products, action.payload ]
             }
+        case EDIT_PRODUCT_ERROR:
+        case DELETE_PRODUCT_ERROR:
         case DOWNLOAD_PRODUCTS_ERROR:
         case ADD_PRODUCT_ERROR: 
             return {
@@ -42,6 +52,28 @@ export default function(state = initialState, action) {
                 loading: false,
                 error: null,
                 products: action.payload
+            }
+        case GET_DELETE_PRODUCT: 
+            return {
+                ...state,
+                productdelete: action.payload
+            }
+        case DELETE_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                products: state.products.filter( product => product.id !== state.productdelete ),
+                productdelete: null
+            }
+        case GET_EDIT_PRODUCT: 
+            return {
+                ...state,
+                editproduct: action.payload
+            }
+        case EDIT_PRODUCT_SUCCESS: 
+            return {
+                ...state,
+                editproduct: null, 
+                products: state.products.map( product => product.id === action.payload.id ? product = action.payload : product )
             }
         default: 
             return state;

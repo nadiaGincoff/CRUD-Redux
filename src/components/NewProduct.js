@@ -13,7 +13,7 @@ const NewProduct= ({history}) => {
     const dispatch = useDispatch();
 
     // access the store status
-    const loading = useSelector( state => state.products.loading );
+    const loading = useSelector(state => state.products.loading);
     const error = useSelector(state => state.products.error);
 
     const addProduct = (product) => dispatch( createNewProductAction(product) )

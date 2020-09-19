@@ -12,11 +12,12 @@ const Products = () => {
         // consult the API
         const loadProducts = () => dispatch( getProductsAction() );
         loadProducts();
+        // eslint-disable-next-line
     }, [])
 
     const products = useSelector( state => state.products.products )
-    const error = useSelector( state => state.products.error)
-    const loading = useSelector( state => state.products.loading)
+    const error = useSelector( state => state.products.error )
+    const loading = useSelector( state => state.products.loading )
 
     return (  
         <Fragment>
