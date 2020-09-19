@@ -1,16 +1,14 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2'
 // Redux
 import { useDispatch } from 'react-redux';
-import { deleteProductAction } from '../actions/productActions';
+import { deleteProductAction, getEditProduct } from '../actions/productActions';
 
 const Product = ({product}) => {
     const { name, price, id } = product;
     
     const dispatch = useDispatch();
-    
-    // function
     const history = useHistory(); // enable history for edition
 
     // Confirm if you want to delete it
@@ -33,6 +31,7 @@ const Product = ({product}) => {
 
     // function that redirects on a scheduled basis (redirige de forma programada)
     const redirectEdit = product => {
+        dispatch( getEditProduct(product));
         history.push(`/products/edit/${product.id}`)
     }
 

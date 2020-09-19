@@ -7,7 +7,11 @@ import {
     DOWNLOAD_PRODUCTS_ERROR,
     GET_DELETE_PRODUCT,
     DELETE_PRODUCT_SUCCESS,
-    DELETE_PRODUCT_ERROR
+    DELETE_PRODUCT_ERROR,
+    GET_EDIT_PRODUCT,
+    START_EDIT_PRODUCT,
+    EDIT_PRODUCT_SUCCESS,
+    EDIT_PRODUCT_ERROR,
 } from '../types'
 
 import axiosClient from '../config/axios'
@@ -116,5 +120,44 @@ const deleteProductSuccess = () => ({
 
 const deleteProductError = () => ({
     type: DELETE_PRODUCT_ERROR,
+    payload: true
+})
+
+// place product in edit
+export function getEditProduct(product) {
+    return (dispatch) => {
+        dispatch( getEditProductAction(product) )
+    }
+}
+
+const getEditProductAction = product => ({
+    type: GET_EDIT_PRODUCT,
+    payload: product
+})
+
+// edit a register in the API & state
+export function editProductAction(product) {
+    return async (dispatch) => {
+        dispatch( editProduct() )
+        try {
+            axiosClient.put(`/products/${product.id}`, product);
+            dispatch( editProductSuccess(product) )
+        } catch (error) {
+            dispatch( editProductsError() )
+        }
+    }
+}
+
+const editProduct = () => ({
+    type: START_EDIT_PRODUCT
+})
+
+const editProductSuccess = product => ({
+    type: EDIT_PRODUCT_SUCCESS,
+    payload: product
+})
+
+const editProductsError = () => ({
+    type: EDIT_PRODUCT_ERROR,
     payload: true
 })

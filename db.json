@@ -2,13 +2,8 @@
   "products": [
     {
       "name": "Pineapple juice",
-      "price": 230,
+      "price": "2304",
       "id": 12
-    },
-    {
-      "name": "Tomato juice",
-      "price": 250,
-      "id": 14
     },
     {
       "name": "Orange juice ",
@@ -19,6 +14,16 @@
       "name": "Carrot juice ",
       "price": 2304,
       "id": 16
+    },
+    {
+      "name": "Water",
+      "price": 250,
+      "id": 17
+    },
+    {
+      "name": "Wine ",
+      "price": 1134,
+      "id": 18
     }
   ]
 }
