@@ -1,11 +1,6 @@
 {
   "products": [
     {
-      "name": "Pineapple juice",
-      "price": "2304",
-      "id": 12
-    },
-    {
       "name": "Orange juice ",
       "price": 400,
       "id": 15
@@ -24,6 +19,11 @@
       "name": "Wine ",
       "price": 1134,
       "id": 18
+    },
+    {
+      "name": "Aguita",
+      "price": 233,
+      "id": 19
     }
   ]
 }
